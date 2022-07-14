@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300&family=Righteous&display=swap');
+
+*{
+    padding: 0px; 
+    margin: 0px;
+
+}
+html, body{
+    height: 100%;
+    color: white;
+}
+
+nav{
+    height: 40px;
+    background-color:rgb(32, 32, 32);
+    position: fixed;
+    width: 100%;
+    color: white;
+    border:1px rgba(237, 237, 237, 0.312);
+    line-height: 40px;
+    padding: 0px 50px 0px 50px;
+    box-sizing: border-box;
+    font-family: 'Righteous', cursive;
+    display: flex;
+    justify-content: space-between;
+}
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+}
+nav ul li{
+    list-style: none;
+    width: 40%;
+    text-justify: end;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+nav ul li a {
+   
+    color: white;
+    text-decoration: none;
+    align-items: center;
+    line-height: 40px;
+}
+
+.slide{
+    min-height: 100vh;
+    width: 100%;
+    background-color: rgb(42, 42, 42);
+    font-family: 'Dosis', sans-serif;
+}
+#connexion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.formulaire{
+    border: 3px solid yellow;
+    border-radius: 25px;
+    width: 50%;
+    padding: 30px;
+    text-align: center;
+    justify-content: center;
+    height: 40vh;
+}
+.formulaire input{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Dosis', sans-serif;
+}
+.formulaire form{
+    margin-top: 30px;
+}
+.formulaire h3{
+    font-size: 30pt;
+}
+#send {
+    margin-top: 25px;
+    width: 20%;
+    height: 25px;
+    background-color: transparent;
+    color: yellow;
+    border: 1px solid white;
+    border-radius: 3px;
+    font-family: 'Dosis', sans-serif;
+    cursor: pointer;
+}
+
+
+
+footer{
+    background-color: rgb(64, 64, 64);
+    color: white;
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
+    font-family: 'Dosis', sans-serif;
+    bottom: 0px;
+    position: absolute;
+    width: 100%;
+}
+
+
+/*  dashboard ***********************/
+#board{
+    background-color: rgb(255, 196, 0);
+    display: flex;
+    align-items: center;
+}
+
+#dash{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    min-height: 50vh !important;
+    
+}
+#dash h3{
+  
+    width: 100%;
+    text-align: center;
+    font-size: 30pt;
+    color: white;
+}
+.categories{
+
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+
+
+}
+.categories a{
+    color: white;
+    border: 1px solid yellow;
+    text-decoration: none;
+    width: 30%;
+    height: 10vh;
+    line-height: 10vh;
+    text-align: center;
+    font-size: 4vw;
+    border-radius: 20px;
+}
+
+
+
+/********************Admin.php*************/
+table{
+    color: white !important;
+}

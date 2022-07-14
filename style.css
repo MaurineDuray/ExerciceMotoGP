@@ -1,0 +1,179 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300&family=Righteous&display=swap');
+*{
+    margin: 0px;
+    padding:0px;
+
+}
+html, body{
+    height: 100%;
+    scroll-behavior: smooth;
+}
+nav{
+    height: 40px;
+    background-color:rgb(32, 32, 32);
+    position: fixed;
+    width: 100%;
+    color: white;
+    border:1px rgba(237, 237, 237, 0.312);
+    line-height: 40px;
+    padding: 0px 50px 0px 50px;
+    box-sizing: border-box;
+    font-family: 'Righteous', cursive;
+    display: flex;
+    justify-content: space-between;
+}
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+}
+nav ul li{
+    list-style: none;
+    width: 40%;
+    text-justify: end;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+nav ul li a {
+   
+    color: white;
+    text-decoration: none;
+    align-items: center;
+    line-height: 40px;
+}
+.slide{
+    width: 100%;
+    min-height: 100vh;
+}
+#home{
+    background-color: rgb(0, 0, 0);
+    color:rgb(255, 208, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 5vw;
+    font-family:  'Righteous', cursive;
+
+    background-image: url(images/kat-sazonova-ziZkrGK-g_g-unsplash.png);
+    
+    background-repeat: none;
+    background-size: cover;
+    background-attachment:fixed;
+    
+    
+}
+.scroll{
+    position: absolute;
+    bottom: 30px;
+    font-size: 10pt;
+}
+
+.pilote, .teams{
+    width: 100%;
+    min-height: 50vh;
+    background-color: black;
+    color: white;
+}
+h3{
+    color:rgb(255, 208, 0);
+    width: 100%;
+    padding-top: 60px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-family: 'Dosis', sans-serif;
+}
+
+.tableau{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.tableau a{
+   
+    width: 20%;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-family: 'Dosis', sans-serif;
+    border:1px solid white;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-left: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+
+
+}
+
+
+footer{
+    background-color: rgb(64, 64, 64);
+    color: white;
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
+    font-family: 'Dosis', sans-serif;
+    bottom: 0px;
+}
+
+
+
+
+.image
+{
+    margin-top: 100px;
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+}
+.image img{
+    height: 80vh !important;
+}
+#presPilote{
+    background-color: rgb(33, 33, 33);
+    display: flex;
+    width: 100%;
+    
+
+}
+.desc{
+    margin-top: 200px;
+    width: 100% !important;
+    color: white;
+    font-size: 3vw;
+    font-family: 'Dosis', sans-serif;
+}
+.desc h4{
+    font-size: 30pt;
+    font-weight: bold;
+
+}
+.desc a{
+    color: white;
+}
+#back{
+    font-size: 15pt;
+    color: yellow;
+    text-decoration: none;
+    
+}
+
+#motoimg img{
+    height: 30vh !important;
+    margin-top: 150px;
+}
+.tableaupilote a{
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    
+    border-radius: 5px;
+    text-align: center;
+    font-size: 15pt;
+    padding: 2px 20px 2px 20px; 
+    
+}
