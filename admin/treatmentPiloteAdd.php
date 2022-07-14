@@ -56,7 +56,7 @@ if(isset($_POST['name'])){
     if($err==0){
         $dossier = '../images/';
         $fichier = basename($_FILES['photo']['name']);
-        $taille_maxi = 200000;
+        $taille_maxi = 2000000;
         $taille = filesize($_FILES['photo']['tmp_name']);
         $extensions = ['.png', '.gif', '.jpg', '.jpeg'];
         $extension = strrchr($_FILES['photo']['name'], '.');

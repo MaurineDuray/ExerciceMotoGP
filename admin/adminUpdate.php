@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+    session_start();
     // si la session n'existe pas, redirection vers formulaire
     if(!isset($_SESSION['login']))
     {
@@ -17,10 +17,9 @@ session_start();
 
     $req = $bdd->prepare("SELECT * FROM membre where id=?");
     $req->execute([$id]);
-    if(!$donMembre = $req->fetch()){
+    if(!$don = $req->fetch()){
         $req->closeCursor();
         header ("LOCATION: admin.php");
-    
     }
     $req->closeCursor();
 
@@ -43,20 +42,18 @@ session_start();
 <body>
     <div class="slide">
         <div class="container">
-        <h3 class="py-5" >Update an admin</h3>
-        <form action="treatmentUpdateAdmin.php" method="POST">
+        <h3 class="py-5"> Update an admin</h3>
+        <form action="treatmentUpdateAdmin.php?id=<?= $don['id'] ?>" method="POST">
         <div class='my-3'>
                     <label for="login">Login:  </label>
-                    <input type="text" name="login" id="login" value="<?php echo $donMembre['login'] ?>" class="form-control">
+                    <input type="text" name="login" id="login" value="<?= $don['login'] ?>" class="form-control">
                 </div>
-                <div class='my-3'>
-                    <label for="password"> Password : </label>
-                    <input type="password" name="password" id="password" value="<?php echo $donMembre['mdp']?>" class="form-control">
-                </div>
+              
                 <div class='my-3'>
                     <label for="mail"> Mail : </label>
-                    <input type="mail" name="mail" id="mail" value="<?php echo $donMembre['mail']?>" class="form-control">
+                    <input type="mail" name="mail" id="mail" value="<?= $don['mail']?>" class="form-control">
                 </div>
+
                 <div class="my-3">
                     <input type="submit" value="Modify" class="btn btn-primary">
                     <a href="admin.php" class="btn btn-secondary">Return</a>
