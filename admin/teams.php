@@ -5,6 +5,26 @@ if(!isset($_SESSION['login'])){
 }
 
 require "../connexion.php";
+
+if(isset($_GET['delete']))
+{
+    $id=htmlspecialchars($_GET['delete']);
+    $req=$bdd->prepare("SELECT * FROM moto WHERE id=?");
+    $req->execute([$id]);
+    if(!$donMoto =$req->fetch())
+    {
+        $reqMoto->closeCursor();
+        header("LOCATION:temas.php");
+    }
+    $req->closeCursor();
+
+    unlink("../images/".$donMoto['image']);
+
+    $delete = $bdd->prepare("DELETE FROM moto where id=?");
+    $delete ->execute([$id]);
+    $delete->closeCursor();
+    header("LOCATION: teams.php?deletesuccess=".$id);
+}
 ?>
 
 
@@ -22,6 +42,17 @@ require "../connexion.php";
 <body>
     <div class="slide">
         <h3 class='ms-5 py-5'>Teams list</h3>
+        <?php
+            if(isset($_GET['add'])){
+                echo "<div class='alert alert-success'>Vous avez bien ajouté une nouvelle équipe ! </div>";
+            }
+            if(isset($_GET['update'])&& isset($_GET['id'])){
+                echo "<div class='alert alert-warning'>Vous avez bien modifié l'équipe' n°".$_GET['id']."</div>";
+            }
+            if(isset($_GET['deletesuccess'])){
+                echo "<div class='alert alert-danger'>Vous avez bien supprimé l'équipe' n°".$_GET['deletesuccess']."</div>";
+            }
+        ?>
         <a href="dashboard.php" class=" btn btn-warning mx-3"> Retour </a>
         <a href="addTeam.php" class=" btn btn-primary my-3 mb-3"> Add a team</a>
         <table class="table table-hover mx-3">

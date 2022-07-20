@@ -53,8 +53,8 @@
             <p>MotoGP</p>
             <ul>
                 
-                <li><a href="#home">HOME</a></li>
-                <li><a href="#ecuries">TEAMS</a></li>
+                <li><a href="../index.php#home">HOME</a></li>
+                <li><a href="../index.php#ecuries">TEAMS</a></li>
                 <li><a href="admin/index.php" style="color:yellow">ADMIN</a></li>
             </ul>
         </nav>

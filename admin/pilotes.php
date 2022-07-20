@@ -5,6 +5,26 @@ if(!isset($_SESSION['login'])){
 }
 
 require "../connexion.php";
+
+if(isset($_GET['delete']))
+{
+    $id=htmlspecialchars($_GET['delete']);
+    $req=$bdd->prepare("SELECT * FROM pilote WHERE id=?");
+    $req->execute([$id]);
+    if(!$donPilote =$req->fetch())
+    {
+        $reqPilote->closeCursor();
+        header("LOCATION:pilotes.php");
+    }
+    $req->closeCursor();
+
+    unlink("../images/".$donPilote['photo']);
+
+    $delete = $bdd->prepare("DELETE FROM pilote where id=?");
+    $delete ->execute([$id]);
+    $delete->closeCursor();
+    header("LOCATION: pilotes.php?deletesuccess=".$id);
+}
 ?>
 
 
@@ -22,6 +42,18 @@ require "../connexion.php";
 <body>
     <div class="slide">
         <h3 class='ms-5 py-5'>Pilotes list</h3>
+
+        <?php
+            if(isset($_GET['add'])){
+                echo "<div class='alert alert-success'>Vous avez bien ajouté une nouveau pilote ! </div>";
+            }
+            if(isset($_GET['update'])&& isset($_GET['id'])){
+                echo "<div class='alert alert-warning'>Vous avez bien modifié le pilote n°".$_GET['id']."</div>";
+            }
+            if(isset($_GET['deletesuccess'])){
+                echo "<div class='alert alert-danger'>Vous avez bien supprimé le pilote n°".$_GET['deletesuccess']."</div>";
+            }
+        ?>
         <a href="dashboard.php" class=" btn btn-warning mx-3"> Retour </a>
         <a href="addPilote.php" class=" btn btn-primary my-3 ">Add a pilote</a>
 
@@ -46,7 +78,7 @@ require "../connexion.php";
                             echo "<td>".$donPilote['prenom']."</td>";
                             echo "<td>";
                             echo "<a href='piloteUpdate.php?id=".$donPilote['id']."' class='btn btn-warning mx-2'>Modifier</a>";
-                            echo "<a href='pilote.php?delete=".$donPilote['id']."' class='btn btn-danger mx-2'>Supprimer</a>";
+                            echo "<a href='pilotes.php?delete=".$donPilote['id']."' class='btn btn-danger mx-2'>Supprimer</a>";
                             echo "</td>";
                         echo "</tr>";
                     }

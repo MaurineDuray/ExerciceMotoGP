@@ -35,6 +35,15 @@ require "../connexion.php";
                     <a href="admin.php" class="btn btn-secondary">Return</a>
                 </div>
         </form>
+
+        <?php
+                if(isset($_GET['error']))
+                {
+                    echo "<div class='alert alert-danger'>Une erreur est survenue (code error: ".$_GET['error']." )</div>";
+                }
+                
+               
+            ?>
     </div>
 </body>
 </html>

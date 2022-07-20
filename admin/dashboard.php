@@ -24,16 +24,26 @@
     <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-    
+<nav>
+            <p>MotoGP</p>
+            <ul>
+                
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#ecuries">TEAMS</a></li>
+                <li><a href="dashboard.php?deco=ok" style="color:yellow">DECONNEXION</a></li>
+            </ul>
+        </nav>
     <div class="slide" id="board">
         
         <div class="slide" id="dash">
             <h3>Welcome on dashboard </h3><br>
+            
             <div class="categories">
                 
                 <a href="admin.php"> ADMIN </a>
                 <a href="pilotes.php"> PILOTES </a>
-                <a href="teams.php"> TEAMS </a>
+                <a href="teams.php"> TEAMS </a><br>
+                
             </div>
         </div>
         <footer>

@@ -5,6 +5,25 @@ if(!isset($_SESSION['login'])){
 }
 
 require "../connexion.php";
+
+if(isset($_GET['delete']))
+{
+    $id=htmlspecialchars($_GET['delete']);
+    $req=$bdd->prepare("SELECT * FROM membre WHERE id=?");
+    $req->execute([$id]);
+    if(!$donMembre =$req->fetch())
+    {
+        $reqMembre->closeCursor();
+        header("LOCATION:admin.php");
+    }
+    $req->closeCursor();
+
+    
+    $delete = $bdd->prepare("DELETE FROM membre where id=?");
+    $delete ->execute([$id]);
+    $delete->closeCursor();
+    header("LOCATION: admin.php?deletesuccess=".$id);
+}
 ?>
 
 
@@ -22,6 +41,17 @@ require "../connexion.php";
 <body>
     <div class="slide">
         <h3 class='ms-5 py-5'>Admin list</h3>
+            <?php
+            if(isset($_GET['deletesuccess'])){
+                echo "<div class='alert alert-danger'>Vous avez bien supprimé l'admin n°".$_GET['deletesuccess']."</div>";
+            }
+            if(isset($_GET['update'])&& isset($_GET['id'])){
+                echo "<div class='alert alert-warning'>Vous avez bien modifié l'admin' n°".$_GET['id']."</div>";
+            }
+            if(isset($_GET['add'])){
+                echo "<div class='alert alert-success'>Vous avez bien ajouté un nouvel admin ! </div>";
+            }
+            ?>
         <a href="dashboard.php" class=" btn btn-warning mx-3"> Retour </a>
         <a href="addAdmin.php" class=" btn btn-primary my-3">Add an admin</a>
         <table class="table table-hover mx-3 pb-4">

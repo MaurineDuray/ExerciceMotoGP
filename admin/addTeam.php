@@ -46,6 +46,25 @@ require "../connexion.php";
                     <a href="teams.php" class="btn btn-secondary">Return</a>
                 </div>
             </form>
+            <?php
+                if(isset($_GET['error']))
+                {
+                    echo "<div class='alert alert-danger'>Une erreur est survenue (code error: ".$_GET['error']." )</div>";
+                }
+                if(isset($_GET['upload']))
+                {
+                    echo "<div class='alert alert-danger'>Une erreur est survenue lors de l'upload du fichier</div>";
+                }
+                if(isset($_GET['imgerror']))
+                {
+                    if($_GET['imgerror']==1)
+                    {
+                        echo "<div class='alert alert-danger'>L'extension du fichier n'est pas acceptée</div>";
+                    }else{
+                        echo "<div class='alert alert-danger'>La taille du fichier dépasse la limite autorisée</div>";
+                    }
+                }
+            ?>
             </div>
     </div>
 </body>
